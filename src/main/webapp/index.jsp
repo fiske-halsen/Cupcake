@@ -16,98 +16,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <title>Cupcake Webshop</title>
 
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            border: 1px solid #e7e7e7;
-            background-color: #f3f3f3;
-        }
 
-        li a {
-            float: left;
-        }
-
-        li b {
-            float: right;
-        }
-
-        li a {
-            display: block;
-            color: #666;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li b {
-            display: block;
-            color: #666;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-
-        li b:hover:not(.active) {
-            background-color: #ddd;
-        }
-
-        li a.active {
-            color: white;
-            background-color: #4CAF50;
-        }
-
-        li b.active {
-            color: white;
-            background-color: #4CAF50;
-        }
-
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {background-color: #ddd;}
-
-        .dropdown:hover .dropdown-content {display: block;}
-
-        .dropdown:hover .dropbtn {background-color: aqua;}
-
-    </style>
 </head>
 <body>
 
@@ -170,12 +82,28 @@
                 </form>
             </div>
 
+
+
+        <div class="col-lg-4"></div>
+
         </div>
 
-        <div class="col-lg-2"></div>
 
     </div>
 
+    <div class="mt-5">
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> Kernen </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    </div>
 </div>
+
+
 
 <%@include file="includes/footer.inc"%>
