@@ -33,7 +33,7 @@
         <li><a href="#opretbruger">Opret bruger</a></li>
         <li><a href="#galleri">Galleri</a></li>
         <!-- todo: fix href -->
-        <li><a class="active" href="WEB-INF/login.jsp">Login</a></li>
+        <li><a class="active" href="WEB-INF/loginpage.jsp">Login</a></li>
         <li><a href="#kurv">Kurv</a></li>
     </ul>
 
