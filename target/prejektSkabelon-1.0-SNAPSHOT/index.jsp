@@ -32,8 +32,8 @@
     <ul class="mb-5">
         <li><a href="#opretbruger">Opret bruger</a></li>
         <li><a href="#galleri">Galleri</a></li>
-        <li><b class="active" href="#login">Login</b></li>
-        <li><b href="#kurv">Kurv</b></li>
+        <li><a class="active" href="WEB-INF/login.jsp">Login</a></li>
+        <li><a href="#kurv">Kurv</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>

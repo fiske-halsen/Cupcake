@@ -1,7 +1,9 @@
-<%-- 
-    Document   : employeepage.jsp
-    Created on : Aug 24, 2017, 6:31:57 AM
-    Author     : kasper
+<%--
+  Created by IntelliJ IDEA.
+  User: chris
+  Date: 16-03-2020
+  Time: 11:59
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/header.inc"%>
@@ -28,13 +30,31 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="#ordreoversigt">Ordreoversigt</a></li>
-        <li><a href="#kundeoversigt">Kundeoversigt</a></li>
         <!-- todo: fix href -->
-        <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
+        <li><a class="active" >${sessionScope.email}</a></li>
+        <li><a href="#kurv">Kurv</a></li>
     </ul>
 
-    <h1 class="text-center mb-5">Du er nu logget ind adminstrator</h1>
+    <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes billeder</h1>
+
+    <!-- todo fix billed position -->
+    <div class="container-fluid">
+        <div class="upcon">
+            <img src="images/cupcakes.jpg" style="width:100%"/>
+        </div>
+        <div class="">
+            <img src="images/cupcakes.jpg" style="width:100%"/>
+        </div>
+        <div class="">
+            <img src="images/cupcakes.jpg" style="width:100%"/>
+        </div>
+        <div class="">
+            <img src="images/cupcakes.jpg" style="width:100%"/>
+        </div>
+
+
+
+    </div>
 
 
     <div class="mt-5">

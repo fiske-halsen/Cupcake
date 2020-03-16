@@ -1,7 +1,9 @@
-<%-- 
-    Document   : employeepage.jsp
-    Created on : Aug 24, 2017, 6:31:57 AM
-    Author     : kasper
+<%--
+  Created by IntelliJ IDEA.
+  User: chris
+  Date: 16-03-2020
+  Time: 12:24
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/header.inc"%>
@@ -34,7 +36,7 @@
         <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
     </ul>
 
-    <h1 class="text-center mb-5">Du er nu logget ind adminstrator</h1>
+    <h1 class="text-center mb-5">Liste over kunder</h1>
 
 
     <div class="mt-5">
