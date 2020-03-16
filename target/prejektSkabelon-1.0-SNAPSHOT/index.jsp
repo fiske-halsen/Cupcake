@@ -26,14 +26,20 @@
 <div class="container-fluid">
 
     <div class="upcon">
-    <img src="images/cupcakes.jpg" style="width:100%"/>
+        <img src="images/cupcakes.jpg" style="width:100%"/>
     </div>
 
     <ul class="mb-5">
         <li><a href="#opretbruger">Opret bruger</a></li>
         <li><a href="#galleri">Galleri</a></li>
-        <li><a class="active" href="WEB-INF/login.jsp">Login</a></li>
+        <!-- todo: fix href -->
         <li><a href="#kurv">Kurv</a></li>
+        <li><a class="active">
+            <form name="loginLink" action="FrontController" method="post">
+            <input type="hidden" name="taget" value="loginLink">
+            <input type="submit" value="Login">
+            </form>
+        </a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
@@ -84,7 +90,7 @@
 
 
 
-        <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
 
         </div>
 
@@ -92,15 +98,15 @@
     </div>
 
     <div class="mt-5">
-    <footer class="page-footer font-small blue">
+        <footer class="page-footer font-small blue">
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/"> Kernen </a>
-        </div>
-        <!-- Copyright -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> Kernen </a>
+            </div>
+            <!-- Copyright -->
 
-    </footer>
+        </footer>
     </div>
 </div>
 
