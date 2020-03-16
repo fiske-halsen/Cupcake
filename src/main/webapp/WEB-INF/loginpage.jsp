@@ -1,21 +1,16 @@
-<%-- 
-    Document   : index
-    Created on : Aug 22, 2017, 2:01:06 PM
-    Author     : kasper
---%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/includes/header.inc"%>
 
-
-<!DOCTYPE html>
-<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Welcome to Sem 2</h1>
-        
+
+    <div class="upcon">
+        <img src="images/cupcakes.jpg" style="width:100%"/>
+    </div>
+
         <table>
             <tr><td>Login</td>
                 <td>
@@ -49,14 +44,6 @@
             </tr>
         </table>
 
-
-<%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
-<%--        <% String error = (String) request.getAttribute( "error");--%>
-<%--           if ( error != null) { --%>
-<%--               out.println("<H2>Error!!</h2>");--%>
-<%--               out.println(error);--%>
-<%--           }--%>
-<%--        %>--%>
 
         <c:if test = "${requestScope.error!= null}" >
 
