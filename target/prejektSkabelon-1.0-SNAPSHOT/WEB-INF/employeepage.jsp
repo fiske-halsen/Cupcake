@@ -3,21 +3,53 @@
     Created on : Aug 24, 2017, 6:31:57 AM
     Author     : kasper
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Employee home page</title>
-    </head>
-    <body>
-        
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="../includes/header.inc"%>
 
-        <h1>Hello ${sessionScope.email} </h1>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <title>Cupcake Webshop</title>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="upcon">
+        <img src="images/cupcakes.jpg" style="width:100%"/>
+    </div>
+
+    <ul class="mb-5">
+        <li><a href="#ordreoversigt">Ordreoversigt</a></li>
+        <li><a href="#kundeoversigt">Kundeoversigt</a></li>
+        <!-- todo: fix href -->
+        <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
+    </ul>
+
+    <h1 class="text-center mb-5">Du er nu logget ind adminstrator</h1>
+
+
+    <div class="mt-5">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> Kernen </a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+</div>
 
 
 
-        You are now logged in as a EMPLOYEE of our wonderful site.
-    </body>
-</html>
+<%@include file="../includes/footer.inc"%>
