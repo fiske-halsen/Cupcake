@@ -33,8 +33,13 @@
         <li><a href="#opretbruger">Opret bruger</a></li>
         <li><a href="#galleri">Galleri</a></li>
         <!-- todo: fix href -->
-        <li><a class="active" href="WEB-INF/login.jsp">Login</a></li>
         <li><a href="#kurv">Kurv</a></li>
+        <li><a class="active">
+            <form name="loginLink" action="FrontController" method="post">
+            <input type="hidden" name="taget" value="loginLink">
+            <input type="submit" value="Login">
+            </form>
+        </a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
