@@ -4,7 +4,7 @@
     Author     : kasper
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../includes/header.inc"%>
+<%@include file="../includes/headernoback.inc"%>
 
 
     <!-- Required meta tags -->
@@ -29,7 +29,7 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="#galleri">Galleri</a></li>
+        <li><a href="FrontController?taget=galleri">Galleri</a></li>
         <!-- todo fix href -->
         <li><a href="#kurv">Kurv</a></li>
         <li><a class="active" href="#login">${sessionScope.email}</a></li>

@@ -20,6 +20,7 @@ public class Redirect extends Command {
             case "galleri":
                 return "galleripage";
 
+
             default: return "index";
 
         }
