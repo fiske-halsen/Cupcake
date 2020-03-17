@@ -6,13 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<!-- Kernen
+<!-- Kernen -->
 
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/header.inc" %>
 
-<head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,14 +52,14 @@
             <!-- todo ændre value til en command class -->
             <h1> Login </h1>
             <form action="FrontController" method="post">
-                <input type="hidden" name="taget" value="login"/>
+                <input type="hidden" name="taget" value="loginuser"/>
                 <div class="form-group">
-                    <label for="brugernavn">Brugernavn</label>
-                    <input type="text" name="brugernavn" class="form-control" id="brugernavn1" aria-describedby="heightHelp">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" class="form-control" id="email">
                 </div>
                 <div class="form-group">
-                    <label for="password1">Indtast password</label>
-                    <input type="text" name="password1" class="form-control" id="password">
+                    <label for="password">Indtast password</label>
+                    <input type="password" name="password" class="form-control" id="password">
 
                 </div>
 
@@ -70,14 +70,14 @@
             <form action="FrontController" method="post">
                 <input type="hidden" name="taget" value="register"/>
                 <div class="form-group">
-                    <label for="brugernavn">Brugernavn</label>
-                    <input type="text" name="brugernavn" class="form-control" id="brugernavn" aria-describedby="heightHelp">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="password1">Indtast password</label>
-                    <input type="text" name="password1" class="form-control" id="password1">
+                    <input type="password" name="password1" class="form-control" id="password1">
                     <label for="password2">Gentag password</label>
-                    <input type="text" name="password2" class="form-control" id="password2">
+                    <input type="password" name="password2" class="form-control" id="password2">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Opret bruger</button>
@@ -90,18 +90,14 @@
     </div> <!-- row -->
 
 
-    <div class="mt-5">
-        <footer class="page-footer font-small blue">
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> Kernen </a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-    </div>
 </div>
 
+<c:if test = "${requestScope.error!= null}" >
+
+<h2>Error ! </h2>
+    ${requestScope.error}
+
+</c:if>
 
 <%@include file="../includes/footer.inc" %>

@@ -6,7 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="includes/header.inc"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!doctype html>
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -30,16 +32,11 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="#opretbruger">Opret bruger</a></li>
-        <li><a href="#galleri">Galleri</a></li>
+        <li><a href="FrontController?taget=galleri">Galleri</a></li>
         <!-- todo: fix href -->
         <li><a href="#kurv">Kurv</a></li>
-        <li><a class="active">
-            <form name="loginLink" action="FrontController" method="post">
-            <input type="hidden" name="taget" value="loginLink">
-            <input type="submit" value="Login">
-            </form>
-        </a></li>
+        <li> <a class="active" href="FrontController?taget=login">Login</a>
+        </li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
@@ -108,8 +105,24 @@
 
         </footer>
     </div>
+
+
 </div>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
 
-<%@include file="includes/footer.inc"%>
+
+
+</body>
+</html>

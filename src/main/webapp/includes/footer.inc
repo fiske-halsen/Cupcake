@@ -11,5 +11,26 @@
             crossorigin="anonymous"></script>
 
 </div>
-</body>
+
+
+    <p>
+        <a href="#" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+    </p>
+
+    <div class="mt-5">
+        <footer class="page-footer font-small blue">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">JALLA© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> Kernen </a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+
+
+    </body>
 </html>
