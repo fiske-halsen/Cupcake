@@ -1,0 +1,50 @@
+package PresentationLayer;
+
+import DBAccess.CustomerMapper;
+import DBAccess.OrderMapper;
+import DBAccess.ProductMapper;
+import FunctionLayer.LoginSampleException;
+
+import javax.ejb.Local;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
+
+public class MakeOrder extends Command {
+    @Override
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+
+        // få session id, og bruge det som orderid
+        int sessionId = 6;
+        // få email ud ved, at trække den ud fra sessionen
+        String email = (String) request.getSession().getAttribute("email");
+        // få customer id ud fra emailen
+        int customerId = CustomerMapper.getCustomerId(email);
+
+        // får datoen nu til for at anvende den som parameter til en order
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+
+        // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
+        OrderMapper.InsertOrder(sessionId, date, customerId);
+
+        // nu laver vi en ordrelinie
+
+        // vi får fat i attributerne så vi kan lave en orderlinje
+
+        int buttomId = (int) request.getSession().getAttribute("buttomchoice");
+        int toppingId = (int) request.getSession().getAttribute("toppingchoice");
+        int antal = (int) request.getSession().getAttribute("antal");
+
+        // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
+
+        int totalPrice = (int) (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
+
+        OrderMapper.insertOrderline(sessionId,customerId, buttomId, toppingId, antal, totalPrice);
+
+        return "customerpage";
+    }
+}

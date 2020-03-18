@@ -34,9 +34,9 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="#galleri">Galleri</a></li>
+        <li><a href="FrontController?taget=galleri">Galleri</a></li>
         <!-- todo: fix href -->
-        <li><a class="active" href="WEB-INF/login.jsp">Login</a></li>
+
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes login side</h1>
@@ -46,7 +46,7 @@
 
         <div class="col-lg-4"></div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-5">
 
 
             <!-- todo ændre value til en command class -->
@@ -63,10 +63,10 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary mb-5">Login</button>
             </form>
 
-            <h1> Register </h1>
+            <h1> Or Register </h1>
             <form action="FrontController" method="post">
                 <input type="hidden" name="taget" value="register"/>
                 <div class="form-group">
@@ -100,4 +100,4 @@
 
 </c:if>
 
-<%@include file="../includes/footer.inc" %>
+<%@include file="../includes/footerindex.inc" %>

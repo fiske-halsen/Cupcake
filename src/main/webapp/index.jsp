@@ -6,11 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
-<html lang="en">
+<%@include file="includes/header.inc"%>
 
-<head>
+
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,27 +50,40 @@
             <div class="dropdown mt-5">
                 <button class="dropbtn">Bund</button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="#">Chocolate 1</a>
+                    <a href="#">Vanila 2</a>
+                    <a href="#">Nutmeg 3</a>
+                    <a href="#">Pistacio 3</a>
+                    <a href="#">Almond 3</a>
                 </div>
             </div>
 
             <div class="dropdown">
                 <button class="dropbtn">Topping</button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="#">Chocolate 1</a>
+                    <a href="#">Blueberry 2</a>
+                    <a href="#">Rasberry 3</a>
+                    <a href="#">Crispy 3</a>
+                    <a href="#">Strawberry 3</a>
+                    <a href="#">Rum/Raisin 3</a>
+                    <a href="#">Orange 3</a>
+                    <a href="#">Lemon 3</a>
+                    <a href="#">Blue Cheese 3</a>
                 </div>
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
+                <button class="dropbtn">Antal</button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a href="#">1 stk</a>
+                    <a href="#">2 stk</a>
+                    <a href="#">3 stk</a>
+                    <a href="#">4 stk</a>
+                    <a href="#">5 stk</a>
+                    <a href="#">6 stk</a>
+                    <a href="#">7 stk</a>
+                    <a href="#">8 stk</a>
                 </div>
             </div>
 
@@ -94,35 +106,8 @@
 
     </div>
 
-    <div class="mt-5">
-        <footer class="page-footer font-small blue">
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> Kernen </a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
-    </div>
-
-
-</div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
 
 
 
-</body>
-</html>
+<%@include file="includes/footerindex.inc"%>

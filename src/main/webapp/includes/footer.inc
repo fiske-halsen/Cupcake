@@ -13,11 +13,13 @@
 </div>
 
 
-    <p>
-        <a href="#" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-log-out"></span> Log out
-        </a>
-    </p>
+
+        <form action="FrontController" method="post">
+         <input type="hidden" name="taget" value="logout">
+         <button type="submit" class="btn btn-primary btn-lg">Logout</button>
+         </form>
+
+
 
     <div class="mt-5">
         <footer class="page-footer font-small blue">

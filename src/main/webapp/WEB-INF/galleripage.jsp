@@ -33,6 +33,7 @@
         <!-- todo: fix href -->
         <li><a class="active" >${sessionScope.email}</a></li>
         <li><a href="#kurv">Kurv</a></li>
+        <li><a href="FrontController?taget=customer">Shop</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes billeder</h1>
