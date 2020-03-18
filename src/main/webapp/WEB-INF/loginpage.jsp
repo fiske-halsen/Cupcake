@@ -46,7 +46,7 @@
 
         <div class="col-lg-4"></div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 mt-5">
 
 
             <!-- todo ændre value til en command class -->
@@ -63,10 +63,10 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary mb-5">Login</button>
             </form>
 
-            <h1> Register </h1>
+            <h1> Or Register </h1>
             <form action="FrontController" method="post">
                 <input type="hidden" name="taget" value="register"/>
                 <div class="form-group">
