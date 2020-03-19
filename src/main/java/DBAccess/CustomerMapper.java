@@ -53,7 +53,7 @@ public class CustomerMapper {
         int customer_id = 0;
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select Customer_ID from Customer where Email = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Customer_ID from User where Email = ?");
             statement.setString(1, email);
 
        ResultSet resultSet = statement.executeQuery();
