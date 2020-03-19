@@ -17,7 +17,8 @@ public class MakeOrder extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         // få email ud ved, at trække den ud fra sessionen
-        String email = (String) request.getSession().getAttribute("email");
+        String email = String.valueOf(request.getSession().getAttribute("email"));
+        System.out.println(email);
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
 

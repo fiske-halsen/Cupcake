@@ -10,7 +10,7 @@ public class CustomerMapper {
     public static void updateSaldo(int customer_id, double orderPrice) {
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Update user SET saldo = ? where customer_id = ? ");
+            PreparedStatement statement = connection.prepareStatement("Update User SET Saldo = ? where Customer_ID = ? ");
 
             double newSaldo = getCustomerSaldo(customer_id) - orderPrice;
             statement.setInt(1, customer_id);
@@ -31,12 +31,13 @@ public class CustomerMapper {
         double saldo = 0.0;
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select saldo from customer where customer_id = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Saldo from Customer where Customer_ID = ?");
             statement.setInt(1, customer_id);
             ResultSet resultSet = statement.executeQuery();
 
-            saldo = resultSet.getDouble("saldo");
-
+            while(resultSet.next()) {
+                saldo = resultSet.getDouble("saldo");
+            }
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -52,13 +53,14 @@ public class CustomerMapper {
         int customer_id = 0;
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select customer_id from customer where email = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Customer_ID from Customer where Email = ?");
             statement.setString(1, email);
 
        ResultSet resultSet = statement.executeQuery();
 
-            customer_id = resultSet.getInt("customer_id");
-
+            while(resultSet.next()) {
+                customer_id = resultSet.getInt("Customer_ID");
+            }
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

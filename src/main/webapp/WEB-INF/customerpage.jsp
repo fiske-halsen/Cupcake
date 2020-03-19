@@ -62,7 +62,6 @@
                 <div class="radio">
                     <label><input type="radio" name="buttomchoice" value="5">Almond: 7 kr.</label>
                 </div>
-        </div>
 
 
         <div class="col-lg-1">

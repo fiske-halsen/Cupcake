@@ -12,13 +12,14 @@ public class ProductMapper {
 
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select price from buttom where buttom_id = ?");
+            PreparedStatement statement = connection.prepareStatement("Select price from Buttom where Buttom_id = ?");
             statement.setInt(1, buttom_id);
 
             ResultSet resultSet = statement.executeQuery();
 
-            price = resultSet.getDouble("price");
-
+            while(resultSet.next()) {
+                price = resultSet.getDouble("price");
+            }
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -36,13 +37,14 @@ public class ProductMapper {
 
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select price from topping where topping_id = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Price from Topping where Topping_id = ?");
             statement.setInt(1, topping_id);
 
             ResultSet resultSet = statement.executeQuery();
 
-            price = resultSet.getDouble("price");
-
+            while(resultSet.next()) {
+                price = resultSet.getDouble("Price");
+            }
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
