@@ -16,8 +16,6 @@ public class MakeOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        // få session id, og bruge det som orderid
-        int sessionId = 6;
         // få email ud ved, at trække den ud fra sessionen
         String email = (String) request.getSession().getAttribute("email");
         // få customer id ud fra emailen
@@ -29,21 +27,24 @@ public class MakeOrder extends Command {
         String date = simpleDateFormat.format(new Date());
 
         // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
-        OrderMapper.InsertOrder(sessionId, date, customerId);
+        OrderMapper.InsertOrder(date, customerId);
+
+        // få session id, og bruge det som orderid
+        int orderId = OrderMapper.getOrderId(customerId);
 
         // nu laver vi en ordrelinie
 
         // vi får fat i attributerne så vi kan lave en orderlinje
 
-        int buttomId = (int) request.getSession().getAttribute("buttomchoice");
-        int toppingId = (int) request.getSession().getAttribute("toppingchoice");
-        int antal = (int) request.getSession().getAttribute("antal");
+        int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
+        int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
+        int antal = Integer.parseInt(request.getParameter("antal"));
 
         // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
 
-        int totalPrice = (int) (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
+        int totalPrice = (int) ((ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal);
 
-        OrderMapper.insertOrderline(sessionId,customerId, buttomId, toppingId, antal, totalPrice);
+        OrderMapper.insertOrderline(orderId, customerId, buttomId, toppingId, antal, totalPrice);
 
         return "customerpage";
     }

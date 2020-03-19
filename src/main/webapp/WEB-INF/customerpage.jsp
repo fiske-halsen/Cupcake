@@ -43,12 +43,10 @@
 
         <div class="col-lg-1">
 
-
-            <!-- Radio button choice bund -->
-            <h3> Buttoms </h3>
             <form action="FrontController" method="post">
                 <input type="hidden" name="taget" value="makeorder">
-
+                <!-- Radio button choice bund -->
+                <h3> Buttoms </h3>
                 <div class="radio mt-3">
                     <label><input type="radio" name="buttomchoice" value="1">Chocolate: 5 kr</label>
                 </div>
@@ -64,9 +62,6 @@
                 <div class="radio">
                     <label><input type="radio" name="buttomchoice" value="5">Almond: 7 kr.</label>
                 </div>
-
-            </form>
-
         </div>
 
 
@@ -75,93 +70,81 @@
 
             <!-- Radio topping choice bund -->
             <h3> Toppings </h3>
-            <form action="FrontController" method="post">
-                <input type="hidden" name="taget" value="makeorder">
-                <div class="radio mt-3">
-                    <label><input type="radio" name="toppingchoice" value="1">Chocolate: 5 kr</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="2">Blueberry: 5 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="3">Rasberry: 5 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="4">Crispy: 6 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="5">Strawberry: 6 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="6">Gedeost: 7 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="7">Orange: 8 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="8">Lemon: 8 kr.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="toppingchoice" value="9">Blue waffel: 9 kr.</label>
-                </div>
-
-
-            </form>
+            <div class="radio mt-3">
+                <label><input type="radio" name="toppingchoice" value="1">Chocolate: 5 kr</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="2">Blueberry: 5 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="3">Rasberry: 5 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="4">Crispy: 6 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="5">Strawberry: 6 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="6">Gedeost: 7 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="7">Orange: 8 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="8">Lemon: 8 kr.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="toppingchoice" value="9">Blue waffel: 9 kr.</label>
+            </div>
         </div>
 
         <div class="col-lg-1">
 
             <h3> Antal </h3>
-            <form action="FrontController" method="post">
-                <input type="hidden" name="taget" value="makeorder">
-                <!-- Radio button choice bund -->
-                <div class="radio mt-3">
-                    <label><input type="radio" name="antal" value="1">1 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="2">2 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="3">3 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="4">4 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="5">5 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="6">6 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="7">7 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="8">8 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="9">9 stk.</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="antal" value="10">10 stk.</label>
-                </div>
-
-            </form>
-
+            <!-- Radio button choice bund -->
+            <div class="radio mt-3">
+                <label><input type="radio" name="antal" value="1">1 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="2">2 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="3">3 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="4">4 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="5">5 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="6">6 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="7">7 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="8">8 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="9">9 stk.</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="antal" value="10">10 stk.</label>
+            </div>
         </div>
 
         <!--
         TODO: ændrer value så det passer til java classen der bliver lavet
         -->
         <div class="dropdown">
-            <form action="FrontController" method="post">
-                <input type="hidden" name="taget" value="makeorder">
-                <button type="submit" class="btn btn-primary btn-lg">Tilføj til kurv</button>
-            </form>
+            <button type="submit" class="btn btn-primary btn-lg">Tilføj til kurv</button>
         </div>
 
-        <div class="col-lg-2"></div>
+        </form>
 
+        <div class="col-lg-2"></div>
 
     </div>
 

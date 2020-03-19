@@ -2,6 +2,7 @@ package DBAccess;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OrderMapper {
@@ -34,14 +35,13 @@ public class OrderMapper {
 
 
 
-    public static void InsertOrder(int order_id, String date, int customer_id){
+    public static void InsertOrder(String date, int customer_id){
         try {
-            Connection connection= Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO orders (order_id, date, customer_id)\n" +
-                    "VALUES (?, ?, ?,);");
-            statement.setInt(1,order_id);
-            statement.setString(2, date);
-            statement.setInt(3,customer_id);
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO orders " +
+                    "(date, customer_id) VALUES (?, ?);");
+            statement.setString(1, date);
+            statement.setInt(2,customer_id);
 
             statement.executeUpdate();
 
@@ -51,6 +51,28 @@ public class OrderMapper {
             e.printStackTrace();
         }
 
+    }
+
+    public static int getOrderId(int customer_id){
+        int Order_ID = 0;
+
+        try {
+            Connection connection= Connector.connection();
+            PreparedStatement statement = connection.prepareStatement
+                    ("SELECT Order_ID FROM Orders WHERE Customer_ID = ?");
+            statement.setInt(1,customer_id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            Order_ID = resultSet.getInt("Order_ID");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return Order_ID;
     }
 
 }
