@@ -11,15 +11,15 @@ public class OrderMapper {
 
         try {
             Connection connection= Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO Orderline (Order_ID, Customer_ID , Buttom_ID, " +
-                    "Topping_ID, Quantity, Total_Price) VALUES (?, ?, ?,?,?,?);");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Orderline (Customer_ID , Buttom_ID, " +
+                    "Topping_ID, Total_Price, Order_ID, Quantity) VALUES (?, ?, ?,?,?,?);");
 
-            statement.setInt(1, order_id);
-            statement.setInt(2, customer_id);
-            statement.setInt(3,buttom_id);
-            statement.setInt(4,topping_id);
-            statement.setInt(5,quantity);
-            statement.setDouble(6, price);
+            statement.setInt(1, customer_id);
+            statement.setInt(2, buttom_id);
+            statement.setInt(3, topping_id);
+            statement.setDouble(4,price);
+            statement.setInt(5, order_id);
+            statement.setInt(6, quantity);
 
 
             statement.executeUpdate();
