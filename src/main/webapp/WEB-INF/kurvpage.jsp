@@ -41,14 +41,16 @@
                    user="tue"  password="MitPassword1234/"/>
 
 <sql:query dataSource="${myDS}" var="Orderline">
-SELECT * from Orderline;
+Select b.BottomName, t.ToppingName, o.Total_Price, o.quantity from Orderline as o
+INNER JOIN Buttom as b ON o.buttom_id = b.buttom_id
+INNER JOIN Topping as t ON o.Topping_id = t.Topping_id;
 </sql:query>
 <table border="1">
     <c:forEach var="row" items="${Orderline.rows}">
         <tr>
-            <td><c:out value="${row.Customer_ID}"/></td>
-            <td><c:out value="${row.Buttom_ID}"/></td>
-            <td><c:out value="${row.Topping_ID}"/></td>
+            <td><c:out value="${row.BottomName}"/></td>
+            <td><c:out value="${row.ToppingName}"/></td>
+            <td><c:out value="${row.quantity}"/></td>
             <td><c:out value="${row.Total_Price}"/></td>
 
         </tr>
