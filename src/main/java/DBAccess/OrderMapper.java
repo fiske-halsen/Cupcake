@@ -7,19 +7,19 @@ import java.sql.SQLException;
 
 public class OrderMapper {
 
-    public static void insertOrderline(int order_id, int customer_id, int buttom_id, int topping_id, int quantity, double price){
+    public static void insertOrderline(int customer_id, int buttom_id, int topping_id, int quantity, double price){
 
         try {
             Connection connection= Connector.connection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Orderline (Customer_ID , Buttom_ID, " +
-                    "Topping_ID, Total_Price, Order_ID, Quantity) VALUES (?, ?, ?,?,?,?);");
+                    "Topping_ID, Total_Price, Quantity) VALUES (?, ?,?,?,?);");
 
             statement.setInt(1, customer_id);
             statement.setInt(2, buttom_id);
             statement.setInt(3, topping_id);
             statement.setDouble(4,price);
-            statement.setInt(5, order_id);
-            statement.setInt(6, quantity);
+
+            statement.setInt(5, quantity);
 
 
             statement.executeUpdate();
@@ -77,6 +77,25 @@ public class OrderMapper {
         }
 
         return Order_ID;
+    }
+
+    public static void updateOrderId (int customer_id, int order_id){
+
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE Orderline SET Order_ID=? WHERE Customer_ID=?");
+
+            statement.setInt(1,order_id);
+            statement.setInt(2,customer_id);
+
+            statement.executeUpdate();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

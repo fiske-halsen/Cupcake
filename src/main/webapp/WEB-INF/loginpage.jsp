@@ -35,6 +35,7 @@
 
     <ul class="mb-5">
         <li><a href="FrontController?taget=galleri">Galleri</a></li>
+        <li><a class="active" href="#saldo">${sessionScope.saldo}</a></li>
         <!-- todo: fix href -->
 
     </ul>

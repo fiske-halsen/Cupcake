@@ -24,6 +24,10 @@ public class Redirect extends Command {
 
                 return "customerpage";
 
+            case"sekurv":
+
+                return "kurvpage";
+
 
             default: return "index";
 

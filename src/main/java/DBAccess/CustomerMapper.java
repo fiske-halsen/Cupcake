@@ -13,8 +13,8 @@ public class CustomerMapper {
             PreparedStatement statement = connection.prepareStatement("Update User SET Saldo = ? where Customer_ID = ? ");
 
             double newSaldo = getCustomerSaldo(customer_id) - orderPrice;
-            statement.setInt(1, customer_id);
-            statement.setDouble(2, newSaldo);
+            statement.setDouble(1, newSaldo);
+            statement.setInt(2, customer_id);
 
             statement.executeUpdate();
 
@@ -31,12 +31,12 @@ public class CustomerMapper {
         double saldo = 0.0;
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select Saldo from Customer where Customer_ID = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Saldo from User where Customer_ID = ?");
             statement.setInt(1, customer_id);
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
-                saldo = resultSet.getDouble("saldo");
+                saldo = resultSet.getDouble("Saldo");
             }
 
         } catch (ClassNotFoundException e) {

@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import DBAccess.CustomerMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
@@ -26,7 +27,9 @@ public class Login extends Command {
         session.setAttribute( "role", user.getRole() );
         session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
 
-
+        int customer_id = CustomerMapper.getCustomerId(email);
+        double saldo = CustomerMapper.getCustomerSaldo(customer_id);
+        request.getSession().setAttribute("saldo", saldo);
         return user.getRole() + "page";
     }
 

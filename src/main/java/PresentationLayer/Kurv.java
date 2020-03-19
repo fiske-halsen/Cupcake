@@ -5,14 +5,12 @@ import DBAccess.OrderMapper;
 import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
 
-import javax.ejb.Local;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
-public class MakeOrder extends Command {
+public class Kurv extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
@@ -33,6 +31,7 @@ public class MakeOrder extends Command {
         // få session id, og bruge det som orderid
         int orderId = OrderMapper.getOrderId(customerId);
 
+        OrderMapper.updateOrderId(customerId, orderId);
         // nu laver vi en ordrelinie
 
         // vi får fat i attributerne så vi kan lave en orderlinje
@@ -51,5 +50,7 @@ public class MakeOrder extends Command {
         request.getSession().setAttribute("saldo", saldo);
 
         return "customerpage";
+
+
     }
 }

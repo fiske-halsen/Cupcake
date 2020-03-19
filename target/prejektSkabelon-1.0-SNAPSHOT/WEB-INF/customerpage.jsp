@@ -31,8 +31,9 @@
     <ul class="mb-2">
         <li><a href="FrontController?taget=galleri">Galleri</a></li>
         <!-- todo fix href -->
-        <li><a href="#kurv">Kurv</a></li>
+        <li><a href="FrontController?taget=sekurv">Kurv</a></li>
         <li><a class="active" href="#login">${sessionScope.email}</a></li>
+        <li><a class="active" href="#saldo">${sessionScope.saldo}</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
@@ -44,7 +45,7 @@
         <div class="col-lg-1">
 
             <form action="FrontController" method="post">
-                <input type="hidden" name="taget" value="makeorder">
+                <input type="hidden" name="taget" value="makeorderline">
                 <!-- Radio button choice bund -->
                 <h3> Buttoms </h3>
                 <div class="radio mt-3">
