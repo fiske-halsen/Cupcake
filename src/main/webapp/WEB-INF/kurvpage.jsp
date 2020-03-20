@@ -43,7 +43,7 @@
 <sql:query dataSource="${myDS}" var="Orderline">
 Select b.BottomName, t.ToppingName, o.Total_Price, o.quantity from Orderline as o
 INNER JOIN Buttom as b ON o.buttom_id = b.buttom_id
-INNER JOIN Topping as t ON o.Topping_id = t.Topping_id;
+INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AND Customer_ID= ${sessionScope.customer_id};
 </sql:query>
 <table border="1">
     <c:forEach var="row" items="${Orderline.rows}">
@@ -54,7 +54,7 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id;
             <td><c:out value="${row.Total_Price}"/></td>
         </tr>
     </c:forEach>
-
+    ${sessionScope.totalprice}
 </table>
 
 <form action="FrontController" method="post">

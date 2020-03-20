@@ -49,7 +49,7 @@ public class MakeOrder extends Command {
         CustomerMapper.updateSaldo(customerId, totalPrice);
         double saldo = CustomerMapper.getCustomerSaldo(customerId);
         request.getSession().setAttribute("saldo", saldo);
-
+        ProductMapper.makeInactive(customerId);
         return "customerpage";
     }
 }

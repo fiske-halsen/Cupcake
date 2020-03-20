@@ -7,6 +7,7 @@ import FunctionLayer.LoginSampleException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class MakeOrderLine extends Command {
     @Override
@@ -16,16 +17,18 @@ public class MakeOrderLine extends Command {
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
 
-
         int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
         int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
         int antal = Integer.parseInt(request.getParameter("antal"));
 
         // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
 
-        int totalPrice = (int) ((ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal);
+        int orderLinePrice = (int) ((ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal);
 
-        OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, totalPrice);
+        OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
+
+        double totalPrice = ProductMapper.getTotalPrice(customerId);
+        request.getSession().setAttribute("totalprice", totalPrice);
 
         return "customerpage";
     }

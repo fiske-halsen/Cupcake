@@ -30,7 +30,7 @@ public class Kurv extends Command {
         // få session id, og bruge det som orderid
         int orderId = OrderMapper.getOrderId(customerId);
 
-        OrderMapper.updateOrderId(customerId, orderId);
+        OrderMapper.updateOrderlineId(customerId, orderId);
         // nu laver vi en ordrelinie
 
         // vi får fat i attributerne så vi kan lave en orderlinje

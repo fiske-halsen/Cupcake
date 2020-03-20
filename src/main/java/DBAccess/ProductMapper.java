@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class ProductMapper {
 
-    public static double getButtomPrice(int buttom_id){
+    public static double getButtomPrice(int buttom_id) {
         double price = 0.0;
 
         try {
@@ -17,7 +17,7 @@ public class ProductMapper {
 
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 price = resultSet.getDouble("price");
             }
 
@@ -31,8 +31,7 @@ public class ProductMapper {
     }
 
 
-
-    public static double getToppingPrice(int topping_id){
+    public static double getToppingPrice(int topping_id) {
         double price = 0.0;
 
         try {
@@ -42,7 +41,7 @@ public class ProductMapper {
 
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 price = resultSet.getDouble("Price");
             }
 
@@ -56,17 +55,17 @@ public class ProductMapper {
 
     }
 
-    public static double getTotalPrice(int order_ID){
+    public static double getTotalPrice(int customer_id) {
         double sum = 0.0;
 
         try {
             Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select Total_Price from Orderline where Order_ID = ?");
+            PreparedStatement statement = connection.prepareStatement("Select Total_Price from Orderline where Customer_ID = ? AND Is_Active=TRUE");
 
-
+            statement.setInt(1, customer_id);
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 sum += resultSet.getDouble("Total_Price");
             }
 
@@ -79,5 +78,23 @@ public class ProductMapper {
         return sum;
     }
 
+    public static void makeInactive(int customer_id) {
+
+
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE Orderline set Is_Active=FALSE where Customer_ID = ?");
+
+            statement.setInt(1, customer_id);
+            statement.executeUpdate();
+
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
