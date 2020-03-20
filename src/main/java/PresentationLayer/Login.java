@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import DBAccess.CustomerMapper;
+import DBAccess.ProductMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
@@ -34,6 +35,7 @@ public class Login extends Command {
         int customer_id = CustomerMapper.getCustomerId(email);
         double saldo = CustomerMapper.getCustomerSaldo(customer_id);
         request.getSession().setAttribute("saldo", saldo);
+
         return user.getRole() + "page";
     }
 

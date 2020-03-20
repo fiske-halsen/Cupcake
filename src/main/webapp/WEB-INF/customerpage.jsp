@@ -41,11 +41,7 @@
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
 
-    <c:if test = "${sessionScope.Error != null}" >
 
-        ${sessionScope.Error}
-
-    </c:if>
 
     <div class="row">
 

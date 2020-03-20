@@ -26,15 +26,20 @@ public class MakeOrderLine extends Command {
 
         double orderLinePrice = (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
 
+
+
         if (antalOrdre > 0) {
             request.getSession().setAttribute("orderlineprice", orderLinePrice);
+            request.getSession().setAttribute("TotalPrice", null);
+        } else{
+            OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
+
+            double totalPrice = ProductMapper.getTotalPrice(customerId);
+            request.getSession().setAttribute("TotalPrice", totalPrice);
+
         }
 
-        OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
-
-        double totalPrice = ProductMapper.getTotalPrice(customerId);
-        request.getSession().setAttribute("TotalPrice", totalPrice);
-
         return "customerpage";
+
     }
 }

@@ -68,10 +68,23 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AN
         <input type="text" name="orderline_id" class="form-control" id="removeorder">
         <button type="submit" class="btn btn-primary btn-lg">Fjern</button>
     </div>
+</form>
+</c:if>
+<c:if test = "${sessionScope.TotalPrice == null}" >
+
+<h4> Kurven er tom </h4>
+
 
 </c:if>
 
-</form>
+<c:if test = "${sessionScope.Error != null}" >
+
+    ${sessionScope.Error}
+
+</c:if>
+
+
+
 
 <br>
 <form action="FrontController" method="post">

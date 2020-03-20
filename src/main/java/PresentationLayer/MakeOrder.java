@@ -18,7 +18,7 @@ public class MakeOrder extends Command {
 
         // få email ud ved, at trække den ud fra sessionen
         String email = String.valueOf(request.getSession().getAttribute("email"));
-        System.out.println(email);
+
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
 
@@ -32,23 +32,25 @@ public class MakeOrder extends Command {
 
         // få session id, og bruge det som orderid
 
-        double totalPrice = (double) request.getSession().getAttribute("TotalPrice");
+        double totalPrice = ProductMapper.getTotalPrice(customerId);
 
         int customerSaldo = CustomerMapper.checkSaldo(customerId);
 
-        if(customerSaldo<totalPrice){
 
-            request.getSession().setAttribute("Error", "Ikke nok penge på kundens saldo");
+        if (customerSaldo > totalPrice) {
+            CustomerMapper.updateSaldo(customerId, totalPrice);
+            double saldo = CustomerMapper.getCustomerSaldo(customerId);
+            request.getSession().setAttribute("saldo", saldo);
+            ProductMapper.makeInactive(customerId);
+
+            request.getSession().setAttribute("TotalPrice", null);
+
             return "customerpage";
+        } else {
+            request.getSession().setAttribute("Error", "Du har ikke nok penge på din saldo");
+            return "kurvpage";
         }
-        CustomerMapper.updateSaldo(customerId, totalPrice);
-        double saldo = CustomerMapper.getCustomerSaldo(customerId);
-        request.getSession().setAttribute("saldo", saldo);
-        ProductMapper.makeInactive(customerId);
 
-        request.getSession().setAttribute("TotalPrice", null);
-
-        return "customerpage";
     }
 
 }
