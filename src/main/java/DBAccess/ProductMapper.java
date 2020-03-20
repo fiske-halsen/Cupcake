@@ -56,5 +56,28 @@ public class ProductMapper {
 
     }
 
+    public static double getTotalPrice(int order_ID){
+        double sum = 0.0;
+
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("Select Total_Price from Orderline where Order_ID = ?");
+
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                sum += resultSet.getDouble("Total_Price");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return sum;
+    }
+
 
 }

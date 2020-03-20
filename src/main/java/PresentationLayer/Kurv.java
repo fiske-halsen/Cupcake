@@ -16,7 +16,6 @@ public class Kurv extends Command {
 
         // få email ud ved, at trække den ud fra sessionen
         String email = String.valueOf(request.getSession().getAttribute("email"));
-        System.out.println(email);
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
 

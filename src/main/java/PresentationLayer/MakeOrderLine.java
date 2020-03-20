@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class MakeOrderLine extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-
-
         String email = String.valueOf(request.getSession().getAttribute("email"));
 
         // få customer id ud fra emailen

@@ -52,9 +52,14 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id;
             <td><c:out value="${row.ToppingName}"/></td>
             <td><c:out value="${row.quantity}"/></td>
             <td><c:out value="${row.Total_Price}"/></td>
-
         </tr>
     </c:forEach>
+
 </table>
+
+<form action="FrontController" method="post">
+    <input type="hidden" name="taget" value="makeorder">
+    <button type="submit" class="btn btn-primary btn-lg">Køb</button>
+</form>
 
 <%@include file="../includes/footer.inc"%>
