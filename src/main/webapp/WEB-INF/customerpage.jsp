@@ -22,11 +22,14 @@
 </head>
 <body>
 
+
+
 <div class="container-fluid">
 
     <div class="upcon">
         <img src="images/cupcakes.jpg" style="width:100%"/>
     </div>
+
 
     <ul class="mb-2">
         <li><a href="FrontController?taget=galleri">Galleri</a></li>
@@ -37,6 +40,12 @@
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
+
+    <c:if test = "${sessionScope.Error != null}" >
+
+        ${sessionScope.Error}
+
+    </c:if>
 
     <div class="row">
 

@@ -31,14 +31,24 @@ public class MakeOrder extends Command {
         OrderMapper.InsertOrder(date, customerId);
 
         // få session id, og bruge det som orderid
-        int orderId = OrderMapper.getOrderId(customerId);
 
-        double totalPrice = (double) request.getSession().getAttribute("orderlineprice");
+        double totalPrice = (double) request.getSession().getAttribute("TotalPrice");
 
+        int customerSaldo = CustomerMapper.checkSaldo(customerId);
+
+        if(customerSaldo<totalPrice){
+
+            request.getSession().setAttribute("Error", "Ikke nok penge på kundens saldo");
+            return "customerpage";
+        }
         CustomerMapper.updateSaldo(customerId, totalPrice);
         double saldo = CustomerMapper.getCustomerSaldo(customerId);
         request.getSession().setAttribute("saldo", saldo);
         ProductMapper.makeInactive(customerId);
+
+        request.getSession().setAttribute("TotalPrice", null);
+
         return "customerpage";
     }
+
 }

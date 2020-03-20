@@ -35,7 +35,7 @@ public class CustomerMapper {
             statement.setInt(1, customer_id);
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 saldo = resultSet.getDouble("Saldo");
             }
 
@@ -48,7 +48,7 @@ public class CustomerMapper {
         return saldo;
     }
 
-    public static int getCustomerId(String email){
+    public static int getCustomerId(String email) {
 
         int customer_id = 0;
         try {
@@ -56,9 +56,9 @@ public class CustomerMapper {
             PreparedStatement statement = connection.prepareStatement("Select Customer_ID from User where Email = ?");
             statement.setString(1, email);
 
-       ResultSet resultSet = statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 customer_id = resultSet.getInt("Customer_ID");
             }
 
@@ -71,8 +71,32 @@ public class CustomerMapper {
         return customer_id;
     }
 
+    public static int checkSaldo(int customer_id) {
+        int saldo = 0;
 
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("Select Saldo from User where Customer_ID = ?");
+            statement.setInt(1, customer_id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                saldo = resultSet.getInt("Saldo");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return saldo;
     }
+
+
+}
 
 
 

@@ -96,4 +96,22 @@ public class OrderMapper {
 
     }
 
+    public static void removeOrderLine(int orderLine_ID){
+
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE Orderline SET Is_Active=false WHERE Orderline_ID=?");
+
+            statement.setInt(1, orderLine_ID);
+
+            statement.executeUpdate();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

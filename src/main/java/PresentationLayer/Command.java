@@ -21,6 +21,7 @@ abstract class Command {
         commands.put("kurv", new Kurv());
         commands.put("sekurv", new Redirect());
         commands.put("makeorderline", new MakeOrderLine());
+        commands.put("removeorderline", new RemoveOrderLine());
     }
 
     static Command from( HttpServletRequest request ) {

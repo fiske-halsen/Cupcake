@@ -41,28 +41,44 @@
                    user="tue"  password="MitPassword1234/"/>
 
 <sql:query dataSource="${myDS}" var="Orderline">
-Select b.BottomName, t.ToppingName, o.Total_Price, o.quantity from Orderline as o
+Select o.Orderline_ID, b.BottomName, t.ToppingName, o.Total_Price, o.quantity from Orderline as o
 INNER JOIN Buttom as b ON o.buttom_id = b.buttom_id
 INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AND Customer_ID= ${sessionScope.customer_id};
 </sql:query>
 <table border="1">
     <c:forEach var="row" items="${Orderline.rows}">
         <tr>
+            <td><c:out value="${row.Orderline_ID}"/></td>
             <td><c:out value="${row.BottomName}"/></td>
             <td><c:out value="${row.ToppingName}"/></td>
             <td><c:out value="${row.quantity}"/></td>
             <td><c:out value="${row.Total_Price}"/></td>
         </tr>
     </c:forEach>
-    <c:if test = "${sessionScope.totalPrice != null}" >
+    </table>
 
-        ${sessionScope.totalPrice}
+<c:if test = "${sessionScope.TotalPrice != null}" >
 
-    </c:if></table>
+   Samlet pris:  ${sessionScope.TotalPrice} kr.
 
+<form action="FrontController" method="post">
+    <input type="hidden" name="taget" value="removeorderline"/>
+    <div class="form-group">
+        <label for="removeorder">Indtast nummeret på den cupcake du vil fjerne:</label>
+        <input type="text" name="orderline_id" class="form-control" id="removeorder">
+        <button type="submit" class="btn btn-primary btn-lg">Fjern</button>
+    </div>
+
+</c:if>
+
+</form>
+
+<br>
 <form action="FrontController" method="post">
     <input type="hidden" name="taget" value="makeorder">
     <button type="submit" class="btn btn-primary btn-lg">Køb</button>
 </form>
+
+<br>
 
 <%@include file="../includes/footer.inc"%>
