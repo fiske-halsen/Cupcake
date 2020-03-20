@@ -18,7 +18,6 @@ public class OrderMapper {
             statement.setInt(2, buttom_id);
             statement.setInt(3, topping_id);
             statement.setDouble(4, price);
-
             statement.setInt(5, quantity);
 
 

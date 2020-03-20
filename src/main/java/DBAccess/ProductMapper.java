@@ -55,6 +55,30 @@ public class ProductMapper {
 
     }
 
+    public static int checkKurv(int customer_id){
+        int sum = 0;
+
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("Select count(Is_Active) as sum from Orderline where Customer_ID = ? AND Is_Active=TRUE");
+            statement.setInt(1, customer_id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                sum = resultSet.getInt("sum");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return sum;
+    }
+
     public static double getTotalPrice(int customer_id) {
         double sum = 0.0;
 

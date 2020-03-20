@@ -16,14 +16,19 @@ public class MakeOrderLine extends Command {
 
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
-
         int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
         int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
         int antal = Integer.parseInt(request.getParameter("antal"));
 
         // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
 
-        int orderLinePrice = (int) ((ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal);
+        int antalOrdre = ProductMapper.checkKurv(customerId);
+
+        double orderLinePrice = (double) (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
+
+        if (antalOrdre > 0) {
+            request.getSession().setAttribute("orderlineprice", orderLinePrice);
+        }
 
         OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
 

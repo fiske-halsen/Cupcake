@@ -54,8 +54,11 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AN
             <td><c:out value="${row.Total_Price}"/></td>
         </tr>
     </c:forEach>
-    ${sessionScope.totalprice}
-</table>
+    <c:if test = "${sessionScope.totalPrice != null}" >
+
+        ${sessionScope.totalPrice}
+
+    </c:if></table>
 
 <form action="FrontController" method="post">
     <input type="hidden" name="taget" value="makeorder">

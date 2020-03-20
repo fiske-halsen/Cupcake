@@ -33,18 +33,7 @@ public class MakeOrder extends Command {
         // få session id, og bruge det som orderid
         int orderId = OrderMapper.getOrderId(customerId);
 
-        // nu laver vi en ordrelinie
-
-        // vi får fat i attributerne så vi kan lave en orderlinje
-
-        int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
-        int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
-        int antal = Integer.parseInt(request.getParameter("antal"));
-
-        // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
-
-        int totalPrice = (int) ((ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal);
-
+        double totalPrice = (double) request.getSession().getAttribute("orderlineprice");
 
         CustomerMapper.updateSaldo(customerId, totalPrice);
         double saldo = CustomerMapper.getCustomerSaldo(customerId);
