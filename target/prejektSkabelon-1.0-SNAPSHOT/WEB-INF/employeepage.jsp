@@ -4,7 +4,7 @@
     Author     : kasper
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../includes/header.inc"%>
+<%@include file="../includes/headernoback.inc"%>
 
 
     <!-- Required meta tags -->
@@ -28,8 +28,8 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="#ordreoversigt">Ordreoversigt</a></li>
-        <li><a href="#kundeoversigt">Kundeoversigt</a></li>
+        <li><a href="FrontController?taget=seeorders">Ordreoversigt</a></li>
+        <li><a href="FrontController?taget=seecustomers">Kundeoversigt</a></li>
         <!-- todo: fix href -->
         <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
     </ul>

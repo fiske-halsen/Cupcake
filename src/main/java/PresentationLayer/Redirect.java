@@ -24,12 +24,19 @@ public class Redirect extends Command {
 
                 return "customerpage";
 
-            case"sekurv":
+            case "sekurv":
 
                 return "kurvpage";
 
+            case "seeorders":
+                return "ordreroversigtpage";
 
-            default: return "index";
+            case "seecustomers":
+                return "kundeoversigtpage";
+
+
+            default:
+                return "index";
 
         }
     }

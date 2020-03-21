@@ -18,10 +18,11 @@ abstract class Command {
         commands.put("logout", new LogOut());
         commands.put("customer", new Redirect());
         commands.put("makeorder", new MakeOrder());
-        commands.put("kurv", new Kurv());
         commands.put("sekurv", new Redirect());
         commands.put("makeorderline", new MakeOrderLine());
         commands.put("removeorderline", new RemoveOrderLine());
+        commands.put("seeorders", new Redirect());
+        commands.put("seecustomers", new Redirect());
     }
 
     static Command from( HttpServletRequest request ) {
