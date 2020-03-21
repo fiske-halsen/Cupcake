@@ -39,11 +39,22 @@ SELECT Customer_ID, Email, Saldo FROM User
 
 
 <form action="FrontController" method="post">
-    <input type="hidden" name="taget" value="removeorderline"/>
+    <input type="hidden" name="taget" value="removecustomer"/>
     <div class="form-group">
-        <label for="removeorder">Indtast nummeret på den cupcake du vil fjerne:</label>
-        <input type="text" name="orderline_id" class="form-control" id="removeorder">
+        <label for="removecustomer">Indtast nummer på den kunde du vil slette:</label>
+        <input type="text" name="customerId" class="form-control" id="removecustomer">
         <button type="submit" class="btn btn-primary btn-lg">Fjern</button>
+    </div>
+</form>
+
+<form action="FrontController" method="post">
+    <input type="hidden" name="taget" value="updatecustomersaldo"/>
+    <div class="form-group">
+        <label for="customerId">Indtast nummer på den kunde du vil rette saldo for:</label>
+        <input type="text" name="customerId" class="form-control" id="customerId">
+        <label for="customerSaldo">Indtast den nye saldo til kunden:</label>
+        <input type="text" name="customerSaldo" class="form-control" id="customerSaldo">
+        <button type="submit" class="btn btn-primary btn-lg">Opdater</button>
     </div>
 </form>
 

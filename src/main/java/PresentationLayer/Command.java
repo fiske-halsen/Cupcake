@@ -23,6 +23,8 @@ abstract class Command {
         commands.put("removeorderline", new RemoveOrderLine());
         commands.put("seeorders", new Redirect());
         commands.put("seecustomers", new Redirect());
+        commands.put("removecustomer", new RemoveCustomer());
+        commands.put("updatecustomersaldo", new UpdateCustomerSaldo());
     }
 
     static Command from( HttpServletRequest request ) {
