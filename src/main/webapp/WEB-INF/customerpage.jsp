@@ -144,5 +144,11 @@
     </form>
 </div>
 
+<c:if test = "${sessionScope.Error2 != null}" >
+
+<h3> Afkryds venligst alle tre felter </h3>
+
+</c:if>
+
 
 <%@include file="../includes/footer.inc" %>

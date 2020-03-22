@@ -68,4 +68,12 @@
     </div>
 </form>
 
+<c:if test = "${sessionScope.Error6 != null}" >
+
+<h3> Indtast venligst et gyldigt ordre-id eller tal! </h3>
+
+</c:if>
+
+
+
 <%@include file="../includes/footer.inc"%>

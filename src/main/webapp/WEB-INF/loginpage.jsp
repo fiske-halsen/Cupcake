@@ -93,7 +93,7 @@
 
 <c:if test = "${requestScope.error != null}" >
 
-<h2>Error ! </h2>
+<h2>Fejl !</h2>
     ${requestScope.error}
 
 </c:if>

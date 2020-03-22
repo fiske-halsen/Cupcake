@@ -49,7 +49,7 @@ public class UserMapper {
                 user.setId( id );
                 return user;
             } else {
-                throw new LoginSampleException( "Could not validate user" );
+                throw new LoginSampleException( "Brugeren kunne ikke valideres prøv igen!" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             throw new LoginSampleException(ex.getMessage());

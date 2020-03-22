@@ -13,7 +13,7 @@ public class UnknownCommand extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
-        String msg = "Unknown command. Contact IT";
+        String msg = "Ukendt kommando";
         throw new LoginSampleException( msg );
     }
 

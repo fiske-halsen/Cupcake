@@ -17,7 +17,7 @@
         <footer class="page-footer font-small blue">
 
             <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">JALLA© 2020 Copyright:
+            <div class="footer-copyright text-center py-3">Cupcake© 2020 Copyright:
                 <a href="https://mdbootstrap.com/"> Kernen </a>
             </div>
             <!-- Copyright -->

@@ -69,6 +69,15 @@
     </div>
 </form>
 
+<c:if test = "${sessionScope.Error4 != null}" >
+
+<h3> Indtast venligst et gyldigt id! </h3>
+
+</c:if>
+
+
+
+<br>
 <h3>Opdater saldo</h3>
 
 <form action="FrontController" method="post">
@@ -81,5 +90,13 @@
         <button type="submit" class="btn btn-primary btn-lg">Opdater</button>
     </div>
 </form>
+
+<c:if test = "${sessionScope.Error5 != null}" >
+
+<h3> Indtast venligst et gyldigt kunde-id eller tal! </h3>
+
+</c:if>
+
+
 
 <%@include file="../includes/footer.inc"%>

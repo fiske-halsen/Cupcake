@@ -114,4 +114,28 @@ public class OrderMapper {
 
     }
 
+
+    public static int checkIfOrderExist(int orderId) {
+
+        int order_id = 0;
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("Select Order_ID from Orders where Order_ID= ?");
+            statement.setInt(1, orderId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                orderId = resultSet.getInt("Order_ID");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orderId;
+    }
+
 }

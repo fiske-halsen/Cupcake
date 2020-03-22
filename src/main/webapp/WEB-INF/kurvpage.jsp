@@ -84,6 +84,12 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AN
 
 </c:if>
 
+<c:if test = "${sessionScope.Error3 != null}" >
+
+   <h3> Indtast venligst et gyldigt ordre id! </h3>
+
+</c:if>
+
 <br>
 <form action="FrontController" method="post">
     <input type="hidden" name="taget" value="makeorder">

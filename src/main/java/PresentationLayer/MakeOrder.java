@@ -44,7 +44,7 @@ public class MakeOrder extends Command {
             ProductMapper.makeInactive(customerId);
 
             request.getSession().setAttribute("TotalPrice", null);
-
+            request.getSession().setAttribute("Error", null);
             return "customerpage";
         } else {
             request.getSession().setAttribute("Error", "Du har ikke nok penge på din saldo");

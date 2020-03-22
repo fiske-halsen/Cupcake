@@ -95,6 +95,32 @@ public class CustomerMapper {
         return saldo;
     }
 
+    public static int checkIfCustomerExist(int customerId) {
+
+        int customer_id = 0;
+        try {
+            Connection connection = Connector.connection();
+            PreparedStatement statement = connection.prepareStatement("Select Customer_ID from User where Customer_ID = ?");
+            statement.setInt(1, customerId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                customer_id = resultSet.getInt("Customer_ID");
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return customer_id;
+    }
+
+
+
+
 
 }
 
