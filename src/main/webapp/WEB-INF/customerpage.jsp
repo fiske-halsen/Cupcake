@@ -23,7 +23,6 @@
 <body>
 
 
-
 <div class="container-fluid">
 
     <div class="upcon">
@@ -37,25 +36,18 @@
         <li><a href="FrontController?taget=sekurv">Kurv</a></li>
         <li><a class="active" href="#login">${sessionScope.email}</a></li>
         <li><a class="active" href="#saldo">${sessionScope.saldo}</a></li>
+        <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
 
-
-
-    <div class="row">
-
-        <div class="col-lg-4"></div>
-
-        <div class="col-lg-1">
-
-            <form action="FrontController" method="post">
+    <form action="FrontController" method="post">
+        <div class="row">
+            <div class="col text-right">
                 <input type="hidden" name="taget" value="makeorderline">
                 <!-- Radio button choice bund -->
                 <h3> Buttoms </h3>
-                <div class="radio mt-3">
-                    <label><input type="radio" name="buttomchoice" value="1">Chocolate: 5 kr</label>
-                </div>
+                <label><input type="radio" name="buttomchoice" value="1">Chocolate: 5 kr</label>
                 <div class="radio">
                     <label><input type="radio" name="buttomchoice" value="2">Vanilla: 5 kr.</label>
                 </div>
@@ -68,90 +60,89 @@
                 <div class="radio">
                     <label><input type="radio" name="buttomchoice" value="5">Almond: 7 kr.</label>
                 </div>
+            </div>
 
+            <div class="col text-center">
+                <!-- Radio topping choice bund -->
+                <h3> Toppings </h3>
+                <div class="radio mt-3">
+                    <label><input type="radio" name="toppingchoice" value="1">Chocolate: 5 kr</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="2">Blueberry: 5 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="3">Rasberry: 5 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="4">Crispy: 6 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="5">Strawberry: 6 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="6">Gedeost: 7 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="7">Orange: 8 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="8">Lemon: 8 kr.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="toppingchoice" value="9">Blue waffel: 9 kr.</label>
+                </div>
+            </div>
 
-        <div class="col-lg-1">
-
-
-            <!-- Radio topping choice bund -->
-            <h3> Toppings </h3>
-            <div class="radio mt-3">
-                <label><input type="radio" name="toppingchoice" value="1">Chocolate: 5 kr</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="2">Blueberry: 5 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="3">Rasberry: 5 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="4">Crispy: 6 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="5">Strawberry: 6 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="6">Gedeost: 7 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="7">Orange: 8 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="8">Lemon: 8 kr.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="toppingchoice" value="9">Blue waffel: 9 kr.</label>
+            <div class="col text-left">
+                <h3> Antal </h3>
+                <!-- Radio button choice bund -->
+                <div class="radio mt-3">
+                    <label><input type="radio" name="antal" value="1">1 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="2">2 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="3">3 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="4">4 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="5">5 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="6">6 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="7">7 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="8">8 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="9">9 stk.</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="antal" value="10">10 stk.</label>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-1">
-
-            <h3> Antal </h3>
-            <!-- Radio button choice bund -->
-            <div class="radio mt-3">
-                <label><input type="radio" name="antal" value="1">1 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="2">2 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="3">3 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="4">4 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="5">5 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="6">6 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="7">7 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="8">8 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="9">9 stk.</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="antal" value="10">10 stk.</label>
-            </div>
-        </div>
 
         <!--
         TODO: ændrer value så det passer til java classen der bliver lavet
         -->
-        <div class="dropdown">
-            <button type="submit" class="btn btn-primary btn-lg">Tilføj til kurv</button>
+        <div class="row text-center mt-3">
+            <div class="col">
+                <div class="dropdown">
+                    <button type="submit" class="btn btn-primary btn-lg">Tilføj til kurv</button>
+                </div>
+            </div>
         </div>
-
-        </form>
-
-        <div class="col-lg-2"></div>
-
-    </div>
+    </form>
+</div>
 
 
 <%@include file="../includes/footer.inc" %>

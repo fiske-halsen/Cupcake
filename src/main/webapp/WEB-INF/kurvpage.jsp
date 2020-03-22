@@ -34,6 +34,7 @@
     <li><a href="FrontController?taget=customer">Shop</a></li>
     <li><a class="active" href="#login">${sessionScope.email}</a></li>
     <li><a class="active" href="#saldo">${sessionScope.saldo}</a></li>
+        <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
 </ul>
 
 <sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
@@ -82,9 +83,6 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AN
     ${sessionScope.Error}
 
 </c:if>
-
-
-
 
 <br>
 <form action="FrontController" method="post">

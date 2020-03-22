@@ -22,22 +22,12 @@ public class MakeOrderLine extends Command {
 
         // nu vil vi have fat i prisen for denne ordrelinje og udregnede den samlede pris
 
-        int antalOrdre = ProductMapper.checkKurv(customerId);
-
         double orderLinePrice = (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
 
+        OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
 
-
-        if (antalOrdre > 0) {
-            request.getSession().setAttribute("orderlineprice", orderLinePrice);
-            request.getSession().setAttribute("TotalPrice", null);
-        } else{
-            OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
-
-            double totalPrice = ProductMapper.getTotalPrice(customerId);
-            request.getSession().setAttribute("TotalPrice", totalPrice);
-
-        }
+        double totalPrice = ProductMapper.getTotalPrice(customerId);
+        request.getSession().setAttribute("TotalPrice", totalPrice);
 
         return "customerpage";
 

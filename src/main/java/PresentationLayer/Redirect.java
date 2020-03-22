@@ -34,6 +34,8 @@ public class Redirect extends Command {
             case "seecustomers":
                 return "kundeoversigtpage";
 
+            case "logout":
+                return "index";
 
             default:
                 return "index";

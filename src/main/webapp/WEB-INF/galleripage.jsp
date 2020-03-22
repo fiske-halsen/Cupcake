@@ -39,7 +39,7 @@
             <li><a href="FrontController?taget=customer">Shop</a></li>
             <li><a href="FrontController?taget=sekurv">Kurv</a></li>
             <li><a class="active">${sessionScope.email}</a></li>
-
+                <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
         </c:if>
 
 

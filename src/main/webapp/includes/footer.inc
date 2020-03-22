@@ -12,15 +12,6 @@
 
 </div>
 
-
-
-        <form action="FrontController" method="post">
-         <input type="hidden" name="taget" value="logout">
-         <button type="submit" class="btn btn-primary btn-lg">Logout</button>
-         </form>
-
-
-
     <div class="mt-5">
         <footer class="page-footer font-small blue">
 

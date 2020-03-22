@@ -26,7 +26,6 @@ public class RemoveOrderLine extends Command {
         if(totalPrice > 0.0) {
             request.getSession().setAttribute("TotalPrice", totalPrice);
         } else{
-
             request.getSession().setAttribute("TotalPrice", null);
         }
         return "kurvpage";

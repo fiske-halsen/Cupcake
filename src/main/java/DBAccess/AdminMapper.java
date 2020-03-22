@@ -23,7 +23,6 @@ public class AdminMapper {
             e.printStackTrace();
         }
 
-
     }
 
     public static void insertMoney(int customer_id, double saldo) {

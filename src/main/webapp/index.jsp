@@ -39,69 +39,7 @@
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
-
-    <div class="row">
-
-        <div class="col-lg-4"></div>
-
-
-        <div class="col-lg-6">
-
-            <div class="dropdown mt-5">
-                <button class="dropbtn">Bund</button>
-                <div class="dropdown-content">
-                    <a href="#">Chocolate 1</a>
-                    <a href="#">Vanila 2</a>
-                    <a href="#">Nutmeg 3</a>
-                    <a href="#">Pistacio 3</a>
-                    <a href="#">Almond 3</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Topping</button>
-                <div class="dropdown-content">
-                    <a href="#">Chocolate 1</a>
-                    <a href="#">Blueberry 2</a>
-                    <a href="#">Rasberry 3</a>
-                    <a href="#">Crispy 3</a>
-                    <a href="#">Strawberry 3</a>
-                    <a href="#">Rum/Raisin 3</a>
-                    <a href="#">Orange 3</a>
-                    <a href="#">Lemon 3</a>
-                    <a href="#">Blue Cheese 3</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Antal</button>
-                <div class="dropdown-content">
-                    <a href="#">1 stk</a>
-                    <a href="#">2 stk</a>
-                    <a href="#">3 stk</a>
-                    <a href="#">4 stk</a>
-                    <a href="#">5 stk</a>
-                    <a href="#">6 stk</a>
-                    <a href="#">7 stk</a>
-                    <a href="#">8 stk</a>
-                </div>
-            </div>
-
-            <!--
-            TODO: ændrer value så det passer til java classen der bliver lavet
-            -->
-            <div class="dropdown">
-                <form action="FrontController" method="post">
-                    <input type="hidden" name="taget" value="tilføj">
-                    <button type="submit" class="btn btn-primary btn-lg">Tilføj til kurv</button>
-                </form>
-            </div>
-
-
-
-            <div class="col-lg-4"></div>
-
-        </div>
+    <h3 class="text-center mt-5">Login for at lave en ordre</h3>
 
 
     </div>

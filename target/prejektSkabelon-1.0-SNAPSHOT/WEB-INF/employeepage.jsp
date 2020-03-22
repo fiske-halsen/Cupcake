@@ -28,10 +28,10 @@
     </div>
 
     <ul class="mb-5">
-        <li><a href="FrontController?taget=seeorders">Ordreoversigt</a></li>
         <li><a href="FrontController?taget=seecustomers">Kundeoversigt</a></li>
-        <!-- todo: fix href -->
+        <li><a href="FrontController?taget=seeorders">Ordreoversigt</a></li>
         <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
+            <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Du er nu logget ind adminstrator</h1>

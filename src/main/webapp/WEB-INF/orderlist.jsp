@@ -34,6 +34,7 @@
         <li><a href="#kundeoversigt">Kundeoversigt</a></li>
         <!-- todo: fix href -->
         <li><a class="active" href="WEB-INF/login.jsp">${sessionScope.email}</a></li>
+            <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
     </ul>
 
     <h1 class="text-center mb-5">Liste over ordrer</h1>

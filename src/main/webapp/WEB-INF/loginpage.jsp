@@ -91,7 +91,7 @@
 
 </div>
 
-<c:if test = "${requestScope.error!= null}" >
+<c:if test = "${requestScope.error != null}" >
 
 <h2>Error ! </h2>
     ${requestScope.error}
