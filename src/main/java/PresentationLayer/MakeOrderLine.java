@@ -16,8 +16,6 @@ public class MakeOrderLine extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-
-
         try {
             String email = String.valueOf(request.getSession().getAttribute("email"));
 

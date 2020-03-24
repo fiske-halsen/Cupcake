@@ -38,8 +38,16 @@
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes login side</h1>
+    <br>
 
+    <div class="text-center">
+    <c:if test = "${requestScope.register != null}" >
 
+        <h3> Velkommen til!</h3>
+        ${requestScope.register}
+
+    </c:if>
+    </div>
     <div class="row">
 
         <div class="col-lg-4"></div>
@@ -81,6 +89,8 @@
                 <button type="submit" class="btn btn-primary">Opret bruger</button>
             </form>
         </div>
+
+
 
         <div class="col-lg-4"></div>
 

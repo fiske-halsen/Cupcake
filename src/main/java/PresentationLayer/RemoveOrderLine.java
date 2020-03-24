@@ -22,6 +22,7 @@ public class RemoveOrderLine extends Command {
             int orderline_id = Integer.parseInt(request.getParameter("orderline_id"));
             OrderMapper.removeOrderLine(orderline_id);
             double totalPrice = ProductMapper.getTotalPrice(customerId);
+            request.getSession().setAttribute("Error", null);
 
             if (totalPrice > 0.0) {
                 request.getSession().setAttribute("TotalPrice", totalPrice);
