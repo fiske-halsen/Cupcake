@@ -30,7 +30,6 @@ public class ProductMapper {
         return price;
     }
 
-
     public static double getToppingPrice(int topping_id) {
         double price = 0.0;
 
@@ -55,7 +54,7 @@ public class ProductMapper {
 
     }
 
-    public static int checkKurv(int customer_id){
+    public static int checkKurv(int customer_id) {
         int sum = 0;
 
         try {
@@ -65,7 +64,7 @@ public class ProductMapper {
 
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 sum = resultSet.getInt("sum");
             }
 
@@ -77,48 +76,6 @@ public class ProductMapper {
 
 
         return sum;
-    }
-
-    public static double getTotalPrice(int customer_id) {
-        double sum = 0.0;
-
-        try {
-            Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("Select Total_Price from Orderline where Customer_ID = ? AND Is_Active=TRUE");
-
-            statement.setInt(1, customer_id);
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                sum += resultSet.getDouble("Total_Price");
-            }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return sum;
-    }
-
-    public static void makeInactive(int customer_id) {
-
-
-        try {
-            Connection connection = Connector.connection();
-            PreparedStatement statement = connection.prepareStatement("UPDATE Orderline set Is_Active=FALSE where Customer_ID = ?");
-
-            statement.setInt(1, customer_id);
-            statement.executeUpdate();
-
-
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 }

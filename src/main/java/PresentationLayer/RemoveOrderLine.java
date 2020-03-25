@@ -1,9 +1,6 @@
 package PresentationLayer;
 
-import DBAccess.CustomerMapper;
-import DBAccess.OrderMapper;
-import DBAccess.ProductMapper;
-import DBAccess.UserMapper;
+import DBAccess.*;
 import FunctionLayer.LoginSampleException;
 
 import javax.persistence.criteria.Order;
@@ -20,8 +17,8 @@ public class RemoveOrderLine extends Command {
 
 
             int orderline_id = Integer.parseInt(request.getParameter("orderline_id"));
-            OrderMapper.removeOrderLine(orderline_id);
-            double totalPrice = ProductMapper.getTotalPrice(customerId);
+           OrderLineMapper.removeOrderLine(orderline_id);
+            double totalPrice = OrderLineMapper.getTotalPrice(customerId);
             request.getSession().setAttribute("Error", null);
 
             if (totalPrice > 0.0) {

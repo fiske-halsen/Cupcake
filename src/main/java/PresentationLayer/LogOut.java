@@ -1,7 +1,7 @@
 package PresentationLayer;
 
 import DBAccess.CustomerMapper;
-import DBAccess.ProductMapper;
+import DBAccess.OrderLineMapper;
 import FunctionLayer.LoginSampleException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +12,7 @@ public class LogOut extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         String email = String.valueOf(request.getSession().getAttribute("email"));
         int customer_id = CustomerMapper.getCustomerId(email);
-        ProductMapper.makeInactive(customer_id);
-
+        OrderLineMapper.makeOrderLineInActive(customer_id);
 
         request.getSession().invalidate();
 

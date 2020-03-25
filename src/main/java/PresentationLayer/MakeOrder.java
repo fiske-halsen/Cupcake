@@ -1,15 +1,14 @@
 package PresentationLayer;
 
 import DBAccess.CustomerMapper;
+import DBAccess.OrderLineMapper;
 import DBAccess.OrderMapper;
-import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.OrderFacade;
 
-import javax.ejb.Local;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class MakeOrder extends Command {
@@ -28,11 +27,10 @@ public class MakeOrder extends Command {
         String date = simpleDateFormat.format(new Date());
 
         // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
-        OrderMapper.InsertOrder(date, customerId);
-
+         OrderFacade.createOrder(date, customerId);
         // få session id, og bruge det som orderid
 
-        double totalPrice = ProductMapper.getTotalPrice(customerId);
+        double totalPrice = OrderLineMapper.getTotalPrice(customerId);
 
         int customerSaldo = CustomerMapper.checkSaldo(customerId);
 
@@ -41,7 +39,11 @@ public class MakeOrder extends Command {
             CustomerMapper.updateSaldo(customerId, totalPrice);
             double saldo = CustomerMapper.getCustomerSaldo(customerId);
             request.getSession().setAttribute("saldo", saldo);
-            ProductMapper.makeInactive(customerId);
+            OrderLineMapper.makeOrderLineInActive(customerId);
+
+            int orderId = OrderMapper.getOrderId(customerId);
+
+            OrderMapper.makeOrderInActive(orderId);
 
             request.getSession().setAttribute("TotalPrice", null);
             request.getSession().setAttribute("Error", null);

@@ -11,9 +11,7 @@ public class UpdateCustomerSaldo extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-
         try {
-
 
             int customerId = Integer.parseInt(request.getParameter("customerId"));
             int tempCustomerId = CustomerMapper.checkIfCustomerExist(customerId);
@@ -30,7 +28,7 @@ public class UpdateCustomerSaldo extends Command {
                 request.getSession().setAttribute("Error5", null);
 
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             request.getSession().setAttribute("Error5", "Kunden findes ikke");
         }
 

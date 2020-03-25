@@ -1,16 +1,16 @@
 package PresentationLayer;
 
 import DBAccess.CustomerMapper;
+import DBAccess.OrderLineMapper;
 import DBAccess.OrderMapper;
 import DBAccess.ProductMapper;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.OrderLineFacade;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.InputMismatchException;
 
 public class MakeOrderLine extends Command {
     @Override
@@ -28,12 +28,16 @@ public class MakeOrderLine extends Command {
 
             double orderLinePrice = (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
 
-            OrderMapper.insertOrderline(customerId, buttomId, toppingId, antal, orderLinePrice);
+            OrderLineFacade.createOrderLine(customerId,buttomId,toppingId,orderLinePrice,antal);
 
-            double totalPrice = ProductMapper.getTotalPrice(customerId);
+            double totalPrice = OrderLineMapper.getTotalPrice(customerId);
             request.getSession().setAttribute("TotalPrice", totalPrice);
 
             request.getSession().setAttribute("Error2", null);
+
+            int orderId = OrderMapper.getOrderId(customerId);
+
+            OrderLineMapper.updateOrderlineId(customerId,orderId);
 
 
         } catch( Exception ex ){
