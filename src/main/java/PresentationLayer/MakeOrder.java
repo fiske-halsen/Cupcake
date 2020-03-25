@@ -26,22 +26,22 @@ public class MakeOrder extends Command {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
 
-        // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
-         OrderFacade.createOrder(date, customerId);
-        // få session id, og bruge det som orderid
-
         double totalPrice = OrderLineMapper.getTotalPrice(customerId);
 
         int customerSaldo = CustomerMapper.checkSaldo(customerId);
 
 
         if (customerSaldo > totalPrice) {
+            // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
+            OrderFacade.createOrder(date, customerId);
+            int orderId = OrderMapper.getOrderId(customerId);
+            request.getSession().setAttribute("orderid", orderId);
+
+            OrderLineMapper.updateOrderId(customerId, orderId);
             CustomerMapper.updateSaldo(customerId, totalPrice);
             double saldo = CustomerMapper.getCustomerSaldo(customerId);
             request.getSession().setAttribute("saldo", saldo);
             OrderLineMapper.makeOrderLineInActive(customerId);
-
-            int orderId = OrderMapper.getOrderId(customerId);
 
             OrderMapper.makeOrderInActive(orderId);
 

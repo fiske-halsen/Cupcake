@@ -17,7 +17,7 @@ public class RemoveOrderLine extends Command {
 
 
             int orderline_id = Integer.parseInt(request.getParameter("orderline_id"));
-           OrderLineMapper.removeOrderLine(orderline_id);
+            OrderLineMapper.removeOrderLine(orderline_id);
             double totalPrice = OrderLineMapper.getTotalPrice(customerId);
             request.getSession().setAttribute("Error", null);
 
@@ -29,7 +29,7 @@ public class RemoveOrderLine extends Command {
 
             request.getSession().setAttribute("Error3", null);
 
-        } catch(Exception e){
+        } catch (Exception e) {
 
             request.getSession().setAttribute("Error3", e.getMessage());
 

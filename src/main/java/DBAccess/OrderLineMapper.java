@@ -33,7 +33,7 @@ public class OrderLineMapper {
 
     }
 
-    public static void updateOrderlineId(int customer_id, int order_id) {
+    public static void updateOrderId(int customer_id, int order_id) {
 
         try {
             Connection connection = Connector.connection();

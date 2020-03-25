@@ -35,10 +35,6 @@ public class MakeOrderLine extends Command {
 
             request.getSession().setAttribute("Error2", null);
 
-            int orderId = OrderMapper.getOrderId(customerId);
-
-            OrderLineMapper.updateOrderlineId(customerId,orderId);
-
 
         } catch( Exception ex ){
 
