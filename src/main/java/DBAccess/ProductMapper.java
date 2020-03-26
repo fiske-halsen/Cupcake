@@ -8,14 +8,15 @@ import java.sql.SQLException;
 
 public class ProductMapper {
 
-    public static double getButtomPrice(int buttom_id) {
-        /**
-         * Phillip, Sebastian, Lukas, Christoffer og Sumit
-         * Return price
-         * throws ClassNotFoundException
-         * Phillip, Sebastian, Lukas, Christoffer og Sumit
+    /**
+     * Phillip, Sebastian, Lukas, Christoffer og Sumit
+     * Return price
+     * throws ClassNotFoundException
+     * Phillip, Sebastian, Lukas, Christoffer og Sumit
+     */
 
-         */
+    public static double getButtomPrice(int buttom_id) {
+
 
         double price = 0.0;
 
