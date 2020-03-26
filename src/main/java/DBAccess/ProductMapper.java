@@ -5,9 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class ProductMapper {
 
     public static double getButtomPrice(int buttom_id) {
+        /**
+         * Phillip, Sebastian, Lukas, Christoffer og Sumit
+         * Return price
+         * throws ClassNotFoundException
+         * Phillip, Sebastian, Lukas, Christoffer og Sumit
+
+         */
+
         double price = 0.0;
 
         try {
