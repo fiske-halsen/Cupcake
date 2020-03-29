@@ -48,6 +48,7 @@ public class MakeOrder extends Command {
             request.getSession().setAttribute("TotalPrice", null);
             request.getSession().setAttribute("Error", null);
             return "customerpage";
+            
         } else {
             request.getSession().setAttribute("Error", "Du har ikke nok penge på din saldo");
             return "kurvpage";
