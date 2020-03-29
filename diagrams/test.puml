@@ -1,0 +1,6 @@
+@startuml
+
+User - OrderLine : has many >
+OrderLine - Order : has one >
+
+@enduml
