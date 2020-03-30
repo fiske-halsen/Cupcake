@@ -15,10 +15,12 @@ public class RemoveOrderLine extends Command {
 
             int customerId = CustomerMapper.getCustomerId(email);
 
-
             int orderline_id = Integer.parseInt(request.getParameter("orderline_id"));
+
             OrderLineMapper.removeOrderLine(orderline_id);
+
             double totalPrice = OrderLineMapper.getTotalPrice(customerId);
+
             request.getSession().setAttribute("Error", null);
 
             if (totalPrice > 0.0) {
