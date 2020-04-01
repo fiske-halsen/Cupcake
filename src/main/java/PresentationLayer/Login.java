@@ -27,6 +27,7 @@ public class Login extends Command {
 
         // få customer id ud fra emailen
         int customerId = CustomerMapper.getCustomerId(email);
+        // sætter customerid som attribut til at få fat i det på jsp siden
         request.getSession().setAttribute("customer_id", customerId);
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );

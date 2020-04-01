@@ -17,5 +17,5 @@ public class LogOut extends Command {
         request.getSession().invalidate();
 
         return "index";
-    }
-}
+                }
+                }

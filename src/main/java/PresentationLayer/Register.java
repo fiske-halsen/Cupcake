@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import DBAccess.CustomerMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
@@ -26,11 +27,16 @@ public class Register extends Command {
 
             request.setAttribute("register", "Du er nu oprettet, log venligst ind for at foretage en ordre!");
 
-            session.invalidate();
+                int customer_Id = CustomerMapper.getCustomerId(email);
+                request.getSession().setAttribute("customer_id", customer_Id);
+                double saldo = CustomerMapper.getCustomerSaldo(customer_Id);
+                request.getSession().setAttribute("saldo", saldo);
 
-            return "loginpage";
+            //session.invalidate();
+
+            return "customerpage";
         } else {
-            throw new LoginSampleException("the two passwords did not match");
+            throw new LoginSampleException("De to kodeord matchede ikke!");
         }
     }
 
