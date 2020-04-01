@@ -13,15 +13,15 @@
 <%@include file="../includes/header.inc" %>
 
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <title>Cupcake Webshop</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="CSS/style.css">
+<title>Cupcake Webshop</title>
 
 
 </head>
@@ -41,12 +41,12 @@
     <br>
 
     <div class="text-center">
-    <c:if test = "${requestScope.register != null}" >
+        <c:if test="${requestScope.register != null}">
 
-        <h3> Velkommen til!</h3>
-        ${requestScope.register}
+            <h3> Velkommen til!</h3>
+            ${requestScope.register}
 
-    </c:if>
+        </c:if>
     </div>
     <div class="row">
 
@@ -91,17 +91,15 @@
         </div>
 
 
-
         <div class="col-lg-4"></div>
 
 
     </div> <!-- row -->
 
 
-
 </div>
 
-<c:if test = "${requestScope.error != null}" >
+<c:if test="${requestScope.error != null}">
 
 <h2>Fejl !</h2>
     ${requestScope.error}

@@ -31,10 +31,10 @@ public class Login extends Command {
         request.getSession().setAttribute("customer_id", customerId);
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );
-        session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
+        session.setAttribute("email", email);
 
-        int customer_id = CustomerMapper.getCustomerId(email);
-        double saldo = CustomerMapper.getCustomerSaldo(customer_id);
+        // Vi sætter saldoen så snart man logger ind
+        double saldo = CustomerMapper.getCustomerSaldo(customerId);
         request.getSession().setAttribute("saldo", saldo);
 
         return user.getRole() + "page";

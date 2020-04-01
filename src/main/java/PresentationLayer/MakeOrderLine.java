@@ -17,19 +17,22 @@ public class MakeOrderLine extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         try {
+
             String email = String.valueOf(request.getSession().getAttribute("email"));
 
-            // få customer id ud fra emailen
             int customerId = CustomerMapper.getCustomerId(email);
 
             int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
             int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
             int antal = Integer.parseInt(request.getParameter("antal"));
 
+            // Vi udregner prisen på en orderline
             double orderLinePrice = (ProductMapper.getButtomPrice(buttomId) + ProductMapper.getToppingPrice(toppingId)) * antal;
 
+            // Vi laver en Orderline
             OrderLineFacade.createOrderLine(customerId,buttomId,toppingId,orderLinePrice,antal);
 
+            // Vi trækker den samlede pris for hele kurven ud (alle orderlines)
             double totalPrice = OrderLineMapper.getTotalPrice(customerId);
             request.getSession().setAttribute("TotalPrice", totalPrice);
 

@@ -12,6 +12,7 @@ public class LogOut extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         String email = String.valueOf(request.getSession().getAttribute("email"));
         int customer_id = CustomerMapper.getCustomerId(email);
+        // Når man logger ud sørger vi for at alle orderlines bliver false
         OrderLineMapper.makeOrderLineInActive(customer_id);
 
         request.getSession().invalidate();

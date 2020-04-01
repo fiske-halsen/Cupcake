@@ -39,7 +39,11 @@
         <li><a href="FrontController?taget=logout" class="bg-danger text-white">Logout</a></li>
     </ul>
 
+
+
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes</h1>
+
+
 
     <form action="FrontController" method="post">
         <div class="row">
@@ -61,6 +65,7 @@
                     <label><input type="radio" name="buttomchoice" value="5">Almond: 7 kr.</label>
                 </div>
             </div>
+            
 
             <div class="col text-center">
                 <!-- Radio topping choice bund -->

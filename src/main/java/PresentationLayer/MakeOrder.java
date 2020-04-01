@@ -26,25 +26,30 @@ public class MakeOrder extends Command {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
 
+        // Vi får den totale pris ud fra de orderlines der er i kurven
         double totalPrice = OrderLineMapper.getTotalPrice(customerId);
 
         int customerSaldo = CustomerMapper.checkSaldo(customerId);
 
 
+        // Her oprettes en Order, dog kun, hvis customer har penge nok på saldoen
         if (customerSaldo > totalPrice) {
-            // nu har vi lavet en ordre, nu kan vi lave mange ordrelinier til denne
             OrderFacade.createOrder(date, customerId);
             int orderId = OrderMapper.getOrderId(customerId);
             request.getSession().setAttribute("orderid", orderId);
 
+            // Først når selve ordren bliver lavet, får hver orderline tiknyttet et OrderID
             OrderLineMapper.updateOrderId(customerId, orderId);
+
+            // Når kunden laver ordren bliver kundesaldoen opdateret på siden
             CustomerMapper.updateSaldo(customerId, totalPrice);
             double saldo = CustomerMapper.getCustomerSaldo(customerId);
             request.getSession().setAttribute("saldo", saldo);
+            // Her "tømmer" vi indkøbskurven, ved at gøre orderlines false
             OrderLineMapper.makeOrderLineInActive(customerId);
-
             OrderMapper.makeOrderInActive(orderId);
 
+            // Vi sætter dem null, for at forhindre dem i at blive printet ud på vores jsp sider
             request.getSession().setAttribute("TotalPrice", null);
             request.getSession().setAttribute("Error", null);
             return "customerpage";
