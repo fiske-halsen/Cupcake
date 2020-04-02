@@ -25,7 +25,7 @@ public class Register extends Command {
             session.setAttribute("role", user.getRole());
 
 
-            request.setAttribute("register", "Du er nu oprettet, log venligst ind for at foretage en ordre!");
+            request.setAttribute("register", "Du er nu oprettet, og kan nu foretage en ordre!");
 
                 int customer_Id = CustomerMapper.getCustomerId(email);
                 request.getSession().setAttribute("customer_id", customer_Id);

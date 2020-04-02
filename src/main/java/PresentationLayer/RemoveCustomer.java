@@ -14,8 +14,6 @@ public class RemoveCustomer extends Command {
 
         try {
 
-            String email = String.valueOf(request.getSession().getAttribute("email"));
-
             int customerId = Integer.parseInt(request.getParameter("customerId"));
             int tempCustomerId = CustomerMapper.checkIfCustomerExist(customerId);
 
@@ -27,6 +25,9 @@ public class RemoveCustomer extends Command {
 
             } else {
 
+                AdminMapper.removeOrderLineWithCustomerId(customerId);
+
+                 AdminMapper.removeOrderWithCustomerId(customerId);
 
                 AdminMapper.removeCustomer(customerId);
                 request.getSession().setAttribute("Error4", null);

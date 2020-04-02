@@ -34,26 +34,31 @@ public class MakeOrder extends Command {
 
         // Her oprettes en Order, dog kun, hvis customer har penge nok på saldoen
         if (customerSaldo > totalPrice) {
+
             OrderFacade.createOrder(date, customerId);
+
             int orderId = OrderMapper.getOrderId(customerId);
-            request.getSession().setAttribute("orderid", orderId);
 
             // Først når selve ordren bliver lavet, får hver orderline tiknyttet et OrderID
             OrderLineMapper.updateOrderId(customerId, orderId);
 
             // Når kunden laver ordren bliver kundesaldoen opdateret på siden
             CustomerMapper.updateSaldo(customerId, totalPrice);
+
             double saldo = CustomerMapper.getCustomerSaldo(customerId);
+
             request.getSession().setAttribute("saldo", saldo);
+
             // Her "tømmer" vi indkøbskurven, ved at gøre orderlines false
             OrderLineMapper.makeOrderLineInActive(customerId);
+
             OrderMapper.makeOrderInActive(orderId);
 
-            // Vi sætter dem null, for at forhindre dem i at blive printet ud på vores jsp sider
+            // Vi sætter dem null, for at forhindre dem i at blive printet ud på vores jsp sider, fordi ordren bliver gennemført
             request.getSession().setAttribute("TotalPrice", null);
             request.getSession().setAttribute("Error", null);
             return "customerpage";
-            
+
         } else {
             request.getSession().setAttribute("Error", "Du har ikke nok penge på din saldo");
             return "kurvpage";

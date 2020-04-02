@@ -21,12 +21,18 @@ public class RemoveOrders extends Command {
 
             } else {
 
-                AdminMapper.removeOrder(orderId);
+
+                int customerId = AdminMapper.getCustomerIdFromOrderId(orderId);
+
+                AdminMapper.removeOrderLineWithCustomerId(customerId);
+
+                AdminMapper.removeOrderWithOrderId(orderId);
+
                 request.getSession().setAttribute("Error6", null);
 
             }
 
-        } catch(Exception ex){
+        } catch (Exception ex) {
 
             request.getSession().setAttribute("Error6", ex.getMessage());
 

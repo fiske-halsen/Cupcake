@@ -16,7 +16,6 @@ public class Redirect extends Command {
 
                 return "loginpage";
 
-
             case "galleri":
                 return "galleripage";
 

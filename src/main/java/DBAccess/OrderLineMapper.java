@@ -52,7 +52,7 @@ public class OrderLineMapper {
 
     }
 
-    public static void removeOrderLine(int orderLine_ID) {
+    public static void SetOrderLineInActive(int orderLine_ID) {
 
         try {
             Connection connection = Connector.connection();
@@ -70,8 +70,11 @@ public class OrderLineMapper {
 
     }
 
-    public static void makeOrderLineInActive(int customer_id) {
 
+
+
+
+    public static void makeOrderLineInActive(int customer_id) {
 
         try {
             Connection connection = Connector.connection();
@@ -110,6 +113,11 @@ public class OrderLineMapper {
 
         return sum;
     }
+
+
+
+
+
 
 
 }

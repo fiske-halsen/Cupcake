@@ -3,7 +3,6 @@ package PresentationLayer;
 import DBAccess.*;
 import FunctionLayer.LoginSampleException;
 
-import javax.persistence.criteria.Order;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,7 +16,7 @@ public class RemoveOrderLine extends Command {
 
             int orderline_id = Integer.parseInt(request.getParameter("orderline_id"));
 
-            OrderLineMapper.removeOrderLine(orderline_id);
+            OrderLineMapper.SetOrderLineInActive(orderline_id);
 
             double totalPrice = OrderLineMapper.getTotalPrice(customerId);
 

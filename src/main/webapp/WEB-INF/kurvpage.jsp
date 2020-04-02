@@ -60,7 +60,7 @@ INNER JOIN Topping as t ON o.Topping_id = t.Topping_id WHERE o.Is_Active=TRUE AN
 
 <c:if test = "${sessionScope.TotalPrice != null}" >
 
-   Samlet pris:  ${sessionScope.TotalPrice} kr.
+Samlet pris:  ${sessionScope.TotalPrice} kr.
 
 <form action="FrontController" method="post">
     <input type="hidden" name="taget" value="removeorderline"/>

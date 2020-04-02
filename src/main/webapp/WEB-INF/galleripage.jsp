@@ -32,7 +32,6 @@
     <ul class="mb-5">
         <!-- todo: fix href -->
 
-
         <c:if test="${sessionScope.email != null}">
 
 
@@ -51,6 +50,8 @@
             <li><a class="active" href="FrontController?taget=login">Login</a></li>
 
         </c:if>
+
+
     </ul>
 
     <h1 class="text-center mb-5">Velkommen til byens bedste cupcakes billeder</h1>
