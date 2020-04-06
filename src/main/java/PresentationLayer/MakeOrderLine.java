@@ -22,6 +22,9 @@ public class MakeOrderLine extends Command {
 
             int customerId = CustomerMapper.getCustomerId(email);
 
+
+            // parser vores parametre, da vi altid får et objekt ud af getparameter metoden
+
             int buttomId = Integer.parseInt(request.getParameter("buttomchoice"));
             int toppingId = Integer.parseInt(request.getParameter("toppingchoice"));
             int antal = Integer.parseInt(request.getParameter("antal"));

@@ -27,12 +27,12 @@ public class Register extends Command {
 
             request.setAttribute("register", "Du er nu oprettet, og kan nu foretage en ordre!");
 
-                int customer_Id = CustomerMapper.getCustomerId(email);
-                request.getSession().setAttribute("customer_id", customer_Id);
-                double saldo = CustomerMapper.getCustomerSaldo(customer_Id);
-                request.getSession().setAttribute("saldo", saldo);
+            int customer_Id = CustomerMapper.getCustomerId(email);
+            // sætter customerid som attribut til at få fat i det på jsp siden til at udskrive kurven fra databasen
+            request.getSession().setAttribute("customer_id", customer_Id);
+            double saldo = CustomerMapper.getCustomerSaldo(customer_Id);
+            request.getSession().setAttribute("saldo", saldo);
 
-            //session.invalidate();
 
             return "customerpage";
         } else {

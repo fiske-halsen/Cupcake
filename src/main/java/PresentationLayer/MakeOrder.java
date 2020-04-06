@@ -22,10 +22,10 @@ public class MakeOrder extends Command {
         int customerId = CustomerMapper.getCustomerId(email);
 
         // får datoen nu til for at anvende den som parameter til en order
+
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
-
         // Vi får den totale pris ud fra de orderlines der er i kurven
         double totalPrice = OrderLineMapper.getTotalPrice(customerId);
 
